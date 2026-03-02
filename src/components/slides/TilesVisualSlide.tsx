@@ -43,7 +43,6 @@ export function TilesVisualSlide({ slide, slideNum, total }: Props) {
               {Array.from({ length: gridSize * gridSize }).map((_, idx) => (
                 <motion.div
                   key={`${zoom}-${idx}`}
-                  layout
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ delay: Math.min(idx * 0.01, 0.3), duration: 0.3 }}

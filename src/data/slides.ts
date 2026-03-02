@@ -176,7 +176,7 @@ export const slides: Slide[] = [
     title: "How Does a Map Work in the Browser?",
     icon: "tile",
     image:
-      "https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&w=2560&q=80",
+      "https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&w=2560&q=60",
   },
   {
     type: "content",
@@ -206,7 +206,7 @@ export const slides: Slide[] = [
     title: "Projections: Flattening a Sphere",
     icon: "globe",
     image:
-      "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=2560&q=80",
+      "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=2560&q=60",
   },
   {
     type: "orange",
@@ -270,7 +270,7 @@ export const slides: Slide[] = [
     title: "Raster Tiles vs Vector Tiles",
     icon: "raster_vector",
     image:
-      "https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&fit=crop&w=2560&q=80",
+      "https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&fit=crop&w=2560&q=60",
   },
   {
     type: "versus",
@@ -326,7 +326,7 @@ export const slides: Slide[] = [
     title: "The Library Ecosystem",
     icon: "libs",
     image:
-      "https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?auto=format&fit=crop&w=2560&q=80",
+      "https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?auto=format&fit=crop&w=2560&q=60",
   },
   {
     type: "lib_card",
@@ -487,7 +487,7 @@ export const slides: Slide[] = [
     title: "The Big Comparison",
     icon: "compare",
     image:
-      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=2560&q=80",
+      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=2560&q=60",
   },
   {
     type: "table",
@@ -513,7 +513,7 @@ export const slides: Slide[] = [
     title: "Tile & Data Providers",
     icon: "providers",
     image:
-      "https://images.unsplash.com/photo-1477346611705-65d1883cee1e?auto=format&fit=crop&w=2560&q=80",
+      "https://images.unsplash.com/photo-1477346611705-65d1883cee1e?auto=format&fit=crop&w=2560&q=60",
   },
   {
     type: "two_col",
@@ -549,7 +549,7 @@ export const slides: Slide[] = [
     title: "When to Use What?",
     icon: "decision",
     image:
-      "https://images.unsplash.com/photo-1476842634003-7dcca8f832de?auto=format&fit=crop&w=2560&q=80",
+      "https://images.unsplash.com/photo-1476842634003-7dcca8f832de?auto=format&fit=crop&w=2560&q=60",
   },
   {
     type: "flowchart",
@@ -572,7 +572,7 @@ export const slides: Slide[] = [
     title: "Resources & Next Steps",
     icon: "resources",
     image:
-      "https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&fit=crop&w=2560&q=80",
+      "https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&fit=crop&w=2560&q=60",
   },
   {
     type: "resources",

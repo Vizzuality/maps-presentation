@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import type { SectionSlide as SectionData } from "../../data/slides";
 import { SectionIcon } from "../SectionIcon";
+import { SlideCounter } from "../SlideCounter";
 
 interface Props {
   slide: SectionData;
@@ -15,6 +16,7 @@ export function SectionSlide({ slide, slideNum, total }: Props) {
       <motion.img
         src={slide.image}
         alt=""
+        decoding="async"
         className="absolute inset-0 w-full h-full object-cover"
         initial={{ scale: 1.1 }}
         animate={{ scale: 1 }}
@@ -83,12 +85,8 @@ export function SectionSlide({ slide, slideNum, total }: Props) {
         />
       </div>
 
-      {/* Slide counter */}
-      <div
-        className="absolute bottom-6 right-12 text-base font-mono z-10"
-        style={{ color: "rgba(255,255,255,0.35)" }}
-      >
-        {slideNum + 1} / {total}
+      <div className="z-10">
+        <SlideCounter slideNum={slideNum} total={total} color="rgba(255,255,255,0.35)" />
       </div>
     </div>
   );

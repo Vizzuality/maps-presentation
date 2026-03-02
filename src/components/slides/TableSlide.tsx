@@ -11,9 +11,10 @@ interface Props {
 export function TableSlide({ slide, slideNum, total }: Props) {
   return (
     <SlideWrapper slideNum={slideNum} total={total} sectionLabel={slide.sectionLabel}>
-      <div className="w-full max-w-6xl">
+      <div className="w-full max-w-7xl">
         <motion.h2
-          className="text-5xl font-display text-white mb-8"
+          className="font-display text-white mb-10"
+          style={{ fontSize: "3.5rem", lineHeight: 1.15 }}
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4 }}
@@ -27,7 +28,7 @@ export function TableSlide({ slide, slideNum, total }: Props) {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.15, duration: 0.4 }}
         >
-          <table className="w-full text-base font-body">
+          <table className="w-full font-body" style={{ fontSize: "1.125rem" }}>
             <thead>
               <tr style={{ background: "rgba(255,255,255,0.04)" }}>
                 {slide.headers.map((h, j) => (
@@ -63,8 +64,8 @@ export function TableSlide({ slide, slideNum, total }: Props) {
 
         {slide.footnote && (
           <motion.p
-            className="text-sm font-body mt-6"
-            style={{ color: "#64748b" }}
+            className="font-body mt-7"
+            style={{ color: "#64748b", fontSize: "1rem" }}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.4, duration: 0.3 }}

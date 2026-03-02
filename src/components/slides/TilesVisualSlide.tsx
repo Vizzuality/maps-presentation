@@ -15,13 +15,14 @@ export function TilesVisualSlide({ slide, slideNum, total }: Props) {
   const [zoom, setZoom] = useState(0);
   const maxZ = 4;
   const gridSize = Math.pow(2, zoom);
-  const tileSize = Math.min(300 / gridSize, 75);
+  const tileSize = Math.min(340 / gridSize, 85);
 
   return (
     <SlideWrapper slideNum={slideNum} total={total} sectionLabel={slide.sectionLabel}>
-      <div className="w-full max-w-4xl text-center">
+      <div className="w-full max-w-5xl text-center">
         <motion.h2
-          className="text-5xl font-display text-white mb-3"
+          className="font-display text-white mb-4"
+          style={{ fontSize: "3.5rem", lineHeight: 1.15 }}
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4 }}
@@ -29,12 +30,12 @@ export function TilesVisualSlide({ slide, slideNum, total }: Props) {
           The Tile System &mdash; Zoom Levels
         </motion.h2>
 
-        <p className="font-body text-lg mb-8" style={{ color: "#64748b" }}>
+        <p className="font-body mb-10" style={{ color: "#64748b", fontSize: "1.25rem" }}>
           Click the zoom buttons to see how tiles multiply
         </p>
 
-        <div className="flex justify-center mb-8">
-          <div className="glass rounded-2xl p-8 inline-block">
+        <div className="flex justify-center mb-10">
+          <div className="glass rounded-2xl p-10 inline-block">
             <div
               className="flex flex-wrap justify-center"
               style={{ width: gridSize * tileSize + gridSize * 2, gap: 2 }}
@@ -51,7 +52,7 @@ export function TilesVisualSlide({ slide, slideNum, total }: Props) {
                     height: tileSize,
                     background: colors[idx % colors.length] + "25",
                     border: `1px solid ${colors[idx % colors.length]}50`,
-                    borderRadius: 4,
+                    borderRadius: 6,
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
@@ -60,7 +61,7 @@ export function TilesVisualSlide({ slide, slideNum, total }: Props) {
                   <span
                     className="font-mono"
                     style={{
-                      fontSize: Math.max(8, 14 - zoom * 2),
+                      fontSize: Math.max(9, 15 - zoom * 2),
                       color: "#93c5fd",
                     }}
                   >
@@ -72,27 +73,27 @@ export function TilesVisualSlide({ slide, slideNum, total }: Props) {
           </div>
         </div>
 
-        <div className="flex items-center justify-center gap-5 mb-5">
+        <div className="flex items-center justify-center gap-6 mb-6">
           <button
             onClick={() => setZoom(Math.max(0, zoom - 1))}
             disabled={zoom === 0}
-            className="w-14 h-14 rounded-xl text-xl font-bold transition-all disabled:opacity-20 glass"
-            style={{ color: "#cbd5e1" }}
+            className="w-16 h-16 rounded-xl font-bold transition-all disabled:opacity-20 glass"
+            style={{ color: "#cbd5e1", fontSize: "1.5rem" }}
           >
             &minus;
           </button>
 
           <div
-            className="rounded-xl px-8 py-4 min-w-72"
+            className="rounded-xl px-10 py-5 min-w-80"
             style={{
               background: "rgba(167,139,250,0.1)",
               border: "1px solid rgba(167,139,250,0.2)",
             }}
           >
-            <span className="font-mono text-xl font-bold" style={{ color: "#c4b5fd" }}>
+            <span className="font-mono font-bold" style={{ color: "#c4b5fd", fontSize: "1.375rem" }}>
               Zoom {zoom}
             </span>
-            <span className="font-body text-lg ml-5" style={{ color: "#94a3b8" }}>
+            <span className="font-body ml-6" style={{ color: "#94a3b8", fontSize: "1.25rem" }}>
               {gridSize}&times;{gridSize} ={" "}
               <span className="text-white font-bold">{gridSize * gridSize} tiles</span>
             </span>
@@ -101,14 +102,14 @@ export function TilesVisualSlide({ slide, slideNum, total }: Props) {
           <button
             onClick={() => setZoom(Math.min(maxZ, zoom + 1))}
             disabled={zoom === maxZ}
-            className="w-14 h-14 rounded-xl text-xl font-bold transition-all disabled:opacity-20 glass"
-            style={{ color: "#cbd5e1" }}
+            className="w-16 h-16 rounded-xl font-bold transition-all disabled:opacity-20 glass"
+            style={{ color: "#cbd5e1", fontSize: "1.5rem" }}
           >
             +
           </button>
         </div>
 
-        <p className="font-body text-base" style={{ color: "#64748b" }}>
+        <p className="font-body" style={{ color: "#64748b", fontSize: "1.125rem" }}>
           4<sup>N</sup> tiles per zoom level &middot; At zoom 18 &rarr; ~69 billion tiles
         </p>
       </div>

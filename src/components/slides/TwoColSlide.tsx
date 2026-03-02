@@ -17,9 +17,10 @@ const colorMap: Record<string, { bg: string; border: string; accent: string; bul
 export function TwoColSlide({ slide, slideNum, total }: Props) {
   return (
     <SlideWrapper slideNum={slideNum} total={total} sectionLabel={slide.sectionLabel}>
-      <div className="w-full max-w-5xl">
+      <div className="w-full max-w-6xl">
         <motion.h2
-          className="text-5xl font-display text-white mb-2"
+          className="font-display text-white mb-2"
+          style={{ fontSize: "3.5rem", lineHeight: 1.15 }}
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4 }}
@@ -29,8 +30,8 @@ export function TwoColSlide({ slide, slideNum, total }: Props) {
 
         {slide.subtitle && (
           <motion.p
-            className="text-base font-body mb-7"
-            style={{ color: "#64748b" }}
+            className="font-body mb-8"
+            style={{ color: "#64748b", fontSize: "1.125rem" }}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.1, duration: 0.3 }}
@@ -39,22 +40,22 @@ export function TwoColSlide({ slide, slideNum, total }: Props) {
           </motion.p>
         )}
 
-        <div className="grid grid-cols-2 gap-6">
+        <div className="grid grid-cols-2 gap-7">
           {[slide.left, slide.right].map((col, j) => {
             const colors = colorMap[col.color] ?? colorMap.blue!;
             return (
               <motion.div
                 key={j}
-                className="rounded-2xl p-7"
+                className="rounded-2xl p-8"
                 style={{ background: colors.bg, border: `1px solid ${colors.border}` }}
                 initial={{ opacity: 0, x: j === 0 ? -15 : 15 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.2 + j * 0.1, duration: 0.4 }}
               >
-                <h3 className="font-body font-semibold text-white mb-5 text-xl">{col.heading}</h3>
-                <ul className="space-y-3">
+                <h3 className="font-body font-semibold text-white mb-6" style={{ fontSize: "1.5rem" }}>{col.heading}</h3>
+                <ul className="space-y-4">
                   {col.items.map((it, k) => (
-                    <li key={k} className="font-body text-base flex items-start gap-3" style={{ color: "#cbd5e1" }}>
+                    <li key={k} className="font-body flex items-start gap-3" style={{ color: "#cbd5e1", fontSize: "1.125rem" }}>
                       <span style={{ color: colors.accent }}>{colors.bullet}</span>
                       {it}
                     </li>
@@ -67,8 +68,8 @@ export function TwoColSlide({ slide, slideNum, total }: Props) {
 
         {slide.footnote && (
           <motion.p
-            className="text-sm font-body mt-6"
-            style={{ color: "#64748b" }}
+            className="font-body mt-7"
+            style={{ color: "#64748b", fontSize: "1rem" }}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5, duration: 0.3 }}

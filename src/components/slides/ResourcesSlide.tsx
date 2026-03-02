@@ -11,9 +11,10 @@ interface Props {
 export function ResourcesSlide({ slide, slideNum, total }: Props) {
   return (
     <SlideWrapper slideNum={slideNum} total={total} sectionLabel={slide.sectionLabel}>
-      <div className="w-full max-w-4xl">
+      <div className="w-full max-w-5xl">
         <motion.h2
-          className="text-5xl font-display text-white mb-8"
+          className="font-display text-white mb-10"
+          style={{ fontSize: "3.5rem", lineHeight: 1.15 }}
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4 }}
@@ -21,11 +22,11 @@ export function ResourcesSlide({ slide, slideNum, total }: Props) {
           {slide.title}
         </motion.h2>
 
-        <div className="grid grid-cols-3 gap-4">
+        <div className="grid grid-cols-3 gap-5">
           {slide.links.map((l, j) => (
             <motion.div
               key={j}
-              className="glass rounded-2xl p-6 flex items-center gap-4 transition-all duration-200"
+              className="glass rounded-2xl p-7 flex items-center gap-5 transition-all duration-200"
               style={{ cursor: "default" }}
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
@@ -35,10 +36,10 @@ export function ResourcesSlide({ slide, slideNum, total }: Props) {
                 boxShadow: "0 0 20px rgba(167,139,250,0.1)",
               }}
             >
-              <span className="text-xl">&#x1F517;</span>
+              <span style={{ fontSize: "1.5rem" }}>&#x1F517;</span>
               <div>
-                <p className="font-body text-white font-medium text-base">{l.name}</p>
-                <p className="font-mono text-sm" style={{ color: "#64748b" }}>
+                <p className="font-body text-white font-medium" style={{ fontSize: "1.125rem" }}>{l.name}</p>
+                <p className="font-mono" style={{ color: "#64748b", fontSize: "0.875rem" }}>
                   {l.url}
                 </p>
               </div>

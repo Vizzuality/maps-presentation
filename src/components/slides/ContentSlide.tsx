@@ -11,9 +11,10 @@ interface Props {
 export function ContentSlide({ slide, slideNum, total }: Props) {
   return (
     <SlideWrapper slideNum={slideNum} total={total} sectionLabel={slide.sectionLabel}>
-      <div className="w-full max-w-4xl">
+      <div className="w-full max-w-5xl">
         <motion.h2
-          className="text-5xl font-display text-white mb-6"
+          className="font-display text-white mb-7"
+          style={{ fontSize: "3.5rem", lineHeight: 1.15 }}
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4 }}
@@ -23,8 +24,8 @@ export function ContentSlide({ slide, slideNum, total }: Props) {
 
         {slide.body && (
           <motion.p
-            className="text-xl font-body mb-6"
-            style={{ color: "#94a3b8" }}
+            className="font-body mb-7"
+            style={{ color: "#94a3b8", fontSize: "1.375rem" }}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.15, duration: 0.4 }}
@@ -35,7 +36,7 @@ export function ContentSlide({ slide, slideNum, total }: Props) {
 
         {slide.highlight && (
           <motion.div
-            className="rounded-2xl p-7 mb-6"
+            className="rounded-2xl p-8 mb-7"
             style={{
               background: "rgba(167,139,250,0.08)",
               border: "1px solid rgba(167,139,250,0.15)",
@@ -44,7 +45,7 @@ export function ContentSlide({ slide, slideNum, total }: Props) {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.4 }}
           >
-            <p className="text-lg font-body" style={{ color: "#e2e8f0" }}>
+            <p className="font-body" style={{ color: "#e2e8f0", fontSize: "1.25rem", lineHeight: 1.7 }}>
               {slide.highlight}
             </p>
           </motion.div>
@@ -52,8 +53,8 @@ export function ContentSlide({ slide, slideNum, total }: Props) {
 
         {slide.detail && (
           <motion.p
-            className="text-base font-body mt-5"
-            style={{ color: "#64748b" }}
+            className="font-body mt-5"
+            style={{ color: "#64748b", fontSize: "1.125rem" }}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.3, duration: 0.4 }}
@@ -64,19 +65,19 @@ export function ContentSlide({ slide, slideNum, total }: Props) {
         )}
 
         {slide.cards && (
-          <div className="space-y-4 mt-4">
+          <div className="space-y-5 mt-5">
             {slide.cards.map((c, j) => (
               <motion.div
                 key={j}
-                className="glass rounded-2xl p-6 flex gap-6 items-start"
+                className="glass rounded-2xl p-7 flex gap-7 items-start"
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.15 + j * 0.1, duration: 0.4 }}
               >
-                <span className="text-4xl">{c.emoji}</span>
+                <span className="text-5xl">{c.emoji}</span>
                 <div>
-                  <p className="text-white font-body font-semibold text-lg">{c.name}</p>
-                  <p className="font-body text-base mt-1" style={{ color: "#94a3b8" }}>{c.desc}</p>
+                  <p className="text-white font-body font-semibold" style={{ fontSize: "1.25rem" }}>{c.name}</p>
+                  <p className="font-body mt-2" style={{ color: "#94a3b8", fontSize: "1.125rem" }}>{c.desc}</p>
                 </div>
               </motion.div>
             ))}

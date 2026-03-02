@@ -19,6 +19,7 @@ export interface SectionSlide {
   number: string;
   title: string;
   icon: string;
+  image: string;
 }
 
 export interface ContentSlide {
@@ -174,6 +175,8 @@ export const slides: Slide[] = [
     number: "01",
     title: "How Does a Map Work in the Browser?",
     icon: "tile",
+    image:
+      "https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&w=2560&q=80",
   },
   {
     type: "content",
@@ -202,6 +205,8 @@ export const slides: Slide[] = [
     number: "02",
     title: "Projections: Flattening a Sphere",
     icon: "globe",
+    image:
+      "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=2560&q=80",
   },
   {
     type: "orange",
@@ -264,6 +269,8 @@ export const slides: Slide[] = [
     number: "03",
     title: "Raster Tiles vs Vector Tiles",
     icon: "raster_vector",
+    image:
+      "https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&fit=crop&w=2560&q=80",
   },
   {
     type: "versus",
@@ -318,6 +325,8 @@ export const slides: Slide[] = [
     number: "04",
     title: "The Library Ecosystem",
     icon: "libs",
+    image:
+      "https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?auto=format&fit=crop&w=2560&q=80",
   },
   {
     type: "lib_card",
@@ -477,6 +486,8 @@ export const slides: Slide[] = [
     number: "05",
     title: "The Big Comparison",
     icon: "compare",
+    image:
+      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=2560&q=80",
   },
   {
     type: "table",
@@ -501,6 +512,8 @@ export const slides: Slide[] = [
     number: "06",
     title: "Tile & Data Providers",
     icon: "providers",
+    image:
+      "https://images.unsplash.com/photo-1477346611705-65d1883cee1e?auto=format&fit=crop&w=2560&q=80",
   },
   {
     type: "two_col",
@@ -535,6 +548,8 @@ export const slides: Slide[] = [
     number: "07",
     title: "When to Use What?",
     icon: "decision",
+    image:
+      "https://images.unsplash.com/photo-1476842634003-7dcca8f832de?auto=format&fit=crop&w=2560&q=80",
   },
   {
     type: "flowchart",
@@ -556,6 +571,8 @@ export const slides: Slide[] = [
     number: "08",
     title: "Resources & Next Steps",
     icon: "resources",
+    image:
+      "https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&fit=crop&w=2560&q=80",
   },
   {
     type: "resources",

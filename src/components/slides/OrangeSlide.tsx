@@ -10,7 +10,7 @@ interface Props {
 }
 
 const steps = [
-  { label: "The Problem", desc: "The Earth is a sphere. Your screen is flat. How do you flatten a ball?", visual: "sphere" },
+  { label: "The Problem", desc: "The Earth isn\u2019t even a perfect sphere \u2014 it\u2019s an oblate ellipsoid, slightly squashed at the poles and bulging at the equator. Your screen is flat. How do you flatten that onto a rectangle?", visual: "sphere" },
   { label: "Grab an Orange", desc: "Imagine the Earth is an orange. To see the whole surface, you need to peel it and lay it flat.", visual: "orange" },
   { label: "Peel It!", desc: "But no matter HOW you peel it, the skin tears, stretches, or leaves gaps. You can\u2019t flatten a sphere perfectly.", visual: "peeled" },
   { label: "Choose Your Compromise", desc: "Each projection is a different way of peeling. Every one distorts SOMETHING \u2014 you just pick which distortion you can live with.", visual: "methods" },
@@ -24,13 +24,13 @@ function SphereVisual() {
           <stop offset="0%" stopColor="#60a5fa" /><stop offset="50%" stopColor="#3b82f6" /><stop offset="100%" stopColor="#1e3a5f" />
         </radialGradient>
       </defs>
-      <circle cx="100" cy="100" r="85" fill="url(#sph)" />
-      <ellipse cx="100" cy="100" rx="85" ry="25" fill="none" stroke="#93c5fd" strokeWidth="0.8" opacity="0.5" />
-      <ellipse cx="100" cy="100" rx="85" ry="55" fill="none" stroke="#93c5fd" strokeWidth="0.8" opacity="0.4" />
-      <ellipse cx="100" cy="100" rx="25" ry="85" fill="none" stroke="#93c5fd" strokeWidth="0.8" opacity="0.4" />
-      <ellipse cx="100" cy="100" rx="55" ry="85" fill="none" stroke="#93c5fd" strokeWidth="0.8" opacity="0.4" />
-      <line x1="15" y1="100" x2="185" y2="100" stroke="#93c5fd" strokeWidth="1" opacity="0.6" />
-      <line x1="100" y1="15" x2="100" y2="185" stroke="#93c5fd" strokeWidth="1" opacity="0.6" />
+      <ellipse cx="100" cy="100" rx="88" ry="80" fill="url(#sph)" />
+      <ellipse cx="100" cy="100" rx="88" ry="25" fill="none" stroke="#93c5fd" strokeWidth="0.8" opacity="0.5" />
+      <ellipse cx="100" cy="100" rx="88" ry="52" fill="none" stroke="#93c5fd" strokeWidth="0.8" opacity="0.4" />
+      <ellipse cx="100" cy="100" rx="25" ry="80" fill="none" stroke="#93c5fd" strokeWidth="0.8" opacity="0.4" />
+      <ellipse cx="100" cy="100" rx="55" ry="80" fill="none" stroke="#93c5fd" strokeWidth="0.8" opacity="0.4" />
+      <line x1="12" y1="100" x2="188" y2="100" stroke="#93c5fd" strokeWidth="1" opacity="0.6" />
+      <line x1="100" y1="20" x2="100" y2="180" stroke="#93c5fd" strokeWidth="1" opacity="0.6" />
     </svg>
   );
 }
@@ -53,16 +53,37 @@ function OrangeVisual() {
 }
 
 function PeeledVisual() {
+  // Gore segments like an actual orange peel flattened, with gaps between them
+  const gores = [
+    "M30,80 C30,30 45,8 55,8 C65,8 80,30 80,80 C80,130 65,152 55,152 C45,152 30,130 30,80Z",
+    "M95,80 C95,30 110,8 120,8 C130,8 145,30 145,80 C145,130 130,152 120,152 C110,152 95,130 95,80Z",
+    "M160,80 C160,30 175,8 185,8 C195,8 210,30 210,80 C210,130 195,152 185,152 C175,152 160,130 160,80Z",
+    "M225,80 C225,30 240,8 250,8 C260,8 275,30 275,80 C275,130 260,152 250,152 C240,152 225,130 225,80Z",
+  ];
   return (
-    <svg viewBox="0 0 280 160" className="w-96 h-52">
-      {[0,1,2,3].map(i => (
-        <path key={i} d={`M${40+i*55},10 Q${55+i*55},80 ${40+i*55},150 Q${65+i*55},80 ${70+i*55},10 Q${55+i*55},80 ${70+i*55},150`}
-          fill="#f97316" stroke="#ea580c" strokeWidth="1" opacity="0.85" />
+    <svg viewBox="0 0 300 170" className="w-96 h-56">
+      <defs>
+        <radialGradient id="peel-g" cx="50%" cy="40%">
+          <stop offset="0%" stopColor="#fdba74" />
+          <stop offset="70%" stopColor="#f97316" />
+          <stop offset="100%" stopColor="#c2410c" />
+        </radialGradient>
+      </defs>
+      {gores.map((d, i) => (
+        <g key={i}>
+          <path d={d} fill="url(#peel-g)" stroke="#ea580c" strokeWidth="1.2" opacity="0.9" />
+          {/* Texture lines on peel */}
+          <path d={d} fill="none" stroke="#fbbf24" strokeWidth="0.4" opacity="0.2" strokeDasharray="3,4" />
+        </g>
       ))}
-      {[32,87,142,197].map((x,i) => (
-        <text key={i} x={x} y="85" fill="#ef4444" fontSize="18" fontWeight="bold">&#x26A1;</text>
+      {/* Gap indicators */}
+      {[87, 152, 217].map((x, i) => (
+        <g key={i}>
+          <line x1={x} y1="35" x2={x} y2="125" stroke="#ef4444" strokeWidth="1.5" strokeDasharray="4,3" opacity="0.6" />
+          <text x={x} y="80" textAnchor="middle" fill="#ef4444" fontSize="14">{"\u2702\uFE0F"}</text>
+        </g>
       ))}
-      <text x="140" y="158" textAnchor="middle" fill="#94a3b8" fontSize="10">Gaps, tears, stretching &mdash; unavoidable!</text>
+      <text x="150" y="168" textAnchor="middle" fill="#94a3b8" fontSize="11">Gaps, tears, stretching &mdash; unavoidable!</text>
     </svg>
   );
 }
@@ -85,8 +106,8 @@ function MethodsVisual() {
           transition={{ delay: j * 0.1, duration: 0.3 }}
         >
           <div className="mb-3" style={{ fontSize: "2.5rem" }}>{m.icon}</div>
-          <p className="text-white font-body font-semibold" style={{ fontSize: "1.125rem" }}>{m.name}</p>
-          <p className="font-body mt-1" style={{ color: "#64748b", fontSize: "1rem" }}>{m.desc}</p>
+          <p className="text-white font-body font-semibold" style={{ fontSize: "1.625rem" }}>{m.name}</p>
+          <p className="font-body mt-1" style={{ color: "#64748b", fontSize: "1.25rem" }}>{m.desc}</p>
         </motion.div>
       ))}
     </div>
@@ -119,7 +140,7 @@ export function OrangeSlide({ slide, slideNum, total }: Props) {
         >
           &#x1F34A; The Orange Peel Problem
         </motion.h2>
-        <p className="font-body mb-10" style={{ color: "#64748b", fontSize: "1.25rem" }}>
+        <p className="font-body mb-10" style={{ color: "#64748b", fontSize: "1.5rem" }}>
           Why every flat map is a beautiful lie
         </p>
 
@@ -139,12 +160,12 @@ export function OrangeSlide({ slide, slideNum, total }: Props) {
 
         <motion.div className="glass rounded-2xl p-8 mb-8" layout>
           <div className="flex items-center justify-center gap-3 mb-4">
-            <span className="font-mono" style={{ color: "#a78bfa", fontSize: "1rem" }}>
+            <span className="font-mono" style={{ color: "#a78bfa", fontSize: "1.25rem" }}>
               Step {step + 1}/{steps.length}
             </span>
-            <span className="text-white font-body font-semibold" style={{ fontSize: "1.375rem" }}>&mdash; {s.label}</span>
+            <span className="text-white font-body font-semibold" style={{ fontSize: "1.625rem" }}>&mdash; {s.label}</span>
           </div>
-          <p className="font-body" style={{ color: "#cbd5e1", fontSize: "1.25rem" }}>{s.desc}</p>
+          <p className="font-body" style={{ color: "#cbd5e1", fontSize: "1.5rem" }}>{s.desc}</p>
         </motion.div>
 
         <div className="flex justify-center gap-4">
@@ -154,7 +175,7 @@ export function OrangeSlide({ slide, slideNum, total }: Props) {
               onClick={() => setStep(j)}
               className="w-14 h-14 rounded-xl font-mono transition-all"
               style={{
-                fontSize: "1rem",
+                fontSize: "1.25rem",
                 background: j === step ? "rgba(251,146,60,0.15)" : "rgba(255,255,255,0.03)",
                 border: `1px solid ${j === step ? "rgba(251,146,60,0.3)" : "rgba(255,255,255,0.06)"}`,
                 color: j === step ? "#fb923c" : "#64748b",

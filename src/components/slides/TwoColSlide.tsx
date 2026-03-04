@@ -31,7 +31,7 @@ export function TwoColSlide({ slide, slideNum, total }: Props) {
         {slide.subtitle && (
           <motion.p
             className="font-body mb-8"
-            style={{ color: "#64748b", fontSize: "1.125rem" }}
+            style={{ color: "#64748b", fontSize: "1.375rem" }}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.1, duration: 0.3 }}
@@ -52,10 +52,10 @@ export function TwoColSlide({ slide, slideNum, total }: Props) {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.2 + j * 0.1, duration: 0.4 }}
               >
-                <h3 className="font-body font-semibold text-white mb-6" style={{ fontSize: "1.5rem" }}>{col.heading}</h3>
+                <h3 className="font-body font-semibold text-white mb-6" style={{ fontSize: "1.75rem" }}>{col.heading}</h3>
                 <ul className="space-y-4">
                   {col.items.map((it, k) => (
-                    <li key={k} className="font-body flex items-start gap-3" style={{ color: "#cbd5e1", fontSize: "1.125rem" }}>
+                    <li key={k} className="font-body flex items-start gap-3" style={{ color: "#cbd5e1", fontSize: "1.375rem" }}>
                       <span style={{ color: colors.accent }}>{colors.bullet}</span>
                       {it}
                     </li>
@@ -69,7 +69,7 @@ export function TwoColSlide({ slide, slideNum, total }: Props) {
         {slide.footnote && (
           <motion.p
             className="font-body mt-7"
-            style={{ color: "#64748b", fontSize: "1rem" }}
+            style={{ color: "#64748b", fontSize: "1.25rem" }}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5, duration: 0.3 }}

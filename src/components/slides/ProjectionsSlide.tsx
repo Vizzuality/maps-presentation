@@ -121,7 +121,7 @@ export function ProjectionsSlide({ slide, slideNum, total }: Props) {
         >
           Peeling the Orange: 5 Strategies
         </motion.h2>
-        <p className="font-body mb-8" style={{ color: "#64748b", fontSize: "1.125rem" }}>
+        <p className="font-body mb-8" style={{ color: "#64748b", fontSize: "1.375rem" }}>
           Same orange, different cuts &rarr; different tradeoffs
         </p>
 
@@ -132,7 +132,7 @@ export function ProjectionsSlide({ slide, slideNum, total }: Props) {
               onClick={() => setActive(j)}
               className="px-6 py-3 rounded-xl font-body font-medium whitespace-nowrap transition-all"
               style={{
-                fontSize: "1rem",
+                fontSize: "1.25rem",
                 background: j === active ? `${pr.color}18` : "rgba(255,255,255,0.03)",
                 border: `1px solid ${j === active ? `${pr.color}35` : "rgba(255,255,255,0.06)"}`,
                 color: j === active ? pr.color : "#94a3b8",
@@ -159,31 +159,31 @@ export function ProjectionsSlide({ slide, slideNum, total }: Props) {
             <div className="space-y-5">
               <h3 className="font-display text-white" style={{ fontSize: "2rem" }}>
                 {p.name}{" "}
-                <span className="font-body font-normal" style={{ color: "#64748b", fontSize: "1.125rem" }}>
+                <span className="font-body font-normal" style={{ color: "#64748b", fontSize: "1.375rem" }}>
                   ({p.year})
                 </span>
               </h3>
 
               <div className="rounded-xl p-6" style={{ background: `${p.color}0a`, border: `1px solid ${p.color}1a` }}>
-                <p className="font-body font-medium mb-2" style={{ color: p.color, fontSize: "1.125rem" }}>
+                <p className="font-body font-medium mb-2" style={{ color: p.color, fontSize: "1.375rem" }}>
                   &#x1F34A; The Orange Peel Way
                 </p>
-                <p className="font-body" style={{ color: "#cbd5e1", fontSize: "1.125rem" }}>{p.peel}</p>
+                <p className="font-body" style={{ color: "#cbd5e1", fontSize: "1.375rem" }}>{p.peel}</p>
               </div>
 
               <div className="grid grid-cols-2 gap-5">
                 <div className="rounded-xl p-5" style={{ background: "rgba(16,185,129,0.05)", border: "1px solid rgba(16,185,129,0.12)" }}>
-                  <p className="font-body font-semibold" style={{ color: "#34d399", fontSize: "1rem" }}>{"\u2713"} Preserves</p>
-                  <p className="font-body mt-2" style={{ color: "#cbd5e1", fontSize: "1rem" }}>{p.preserves}</p>
+                  <p className="font-body font-semibold" style={{ color: "#34d399", fontSize: "1.25rem" }}>{"\u2713"} Preserves</p>
+                  <p className="font-body mt-2" style={{ color: "#cbd5e1", fontSize: "1.25rem" }}>{p.preserves}</p>
                 </div>
                 <div className="rounded-xl p-5" style={{ background: "rgba(244,63,94,0.05)", border: "1px solid rgba(244,63,94,0.12)" }}>
-                  <p className="font-body font-semibold" style={{ color: "#fb7185", fontSize: "1rem" }}>{"\u2717"} Distorts</p>
-                  <p className="font-body mt-2" style={{ color: "#cbd5e1", fontSize: "1rem" }}>{p.distorts}</p>
+                  <p className="font-body font-semibold" style={{ color: "#fb7185", fontSize: "1.25rem" }}>{"\u2717"} Distorts</p>
+                  <p className="font-body mt-2" style={{ color: "#cbd5e1", fontSize: "1.25rem" }}>{p.distorts}</p>
                 </div>
               </div>
 
               <div className="glass rounded-xl p-5">
-                <p className="font-body" style={{ color: "#94a3b8", fontSize: "1.125rem" }}>
+                <p className="font-body" style={{ color: "#94a3b8", fontSize: "1.375rem" }}>
                   &#x1F3AF; <span className="text-white font-medium">Best for:</span> {p.use}
                 </p>
               </div>

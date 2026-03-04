@@ -24,7 +24,7 @@ export function LibCardSlide({ slide, slideNum, total }: Props) {
 
         <motion.p
           className="font-body italic mb-7"
-          style={{ color: "#94a3b8", fontSize: "1.25rem" }}
+          style={{ color: "#94a3b8", fontSize: "1.5rem" }}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.1, duration: 0.3 }}
@@ -42,7 +42,7 @@ export function LibCardSlide({ slide, slideNum, total }: Props) {
             <span
               key={j}
               className="font-mono glass rounded-full px-5 py-2"
-              style={{ color: "#94a3b8", fontSize: "0.9375rem" }}
+              style={{ color: "#94a3b8", fontSize: "1.125rem" }}
             >
               <span style={{ color: "#64748b" }}>{m.k}:</span> {m.v}
             </span>
@@ -57,11 +57,11 @@ export function LibCardSlide({ slide, slideNum, total }: Props) {
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.2, duration: 0.4 }}
           >
-            <h4 className="font-body font-semibold mb-5" style={{ color: "#34d399", fontSize: "1.125rem" }}>
+            <h4 className="font-body font-semibold mb-5" style={{ color: "#34d399", fontSize: "1.375rem" }}>
               Pros
             </h4>
             {slide.pros.map((p, j) => (
-              <p key={j} className="font-body mb-3" style={{ color: "#cbd5e1", fontSize: "1.125rem" }}>
+              <p key={j} className="font-body mb-3" style={{ color: "#cbd5e1", fontSize: "1.375rem" }}>
                 <span style={{ color: "#34d399" }}>{"\u2713"}</span> {p}
               </p>
             ))}
@@ -74,11 +74,11 @@ export function LibCardSlide({ slide, slideNum, total }: Props) {
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.25, duration: 0.4 }}
           >
-            <h4 className="font-body font-semibold mb-5" style={{ color: "#fb7185", fontSize: "1.125rem" }}>
+            <h4 className="font-body font-semibold mb-5" style={{ color: "#fb7185", fontSize: "1.375rem" }}>
               Cons
             </h4>
             {slide.cons.map((c, j) => (
-              <p key={j} className="font-body mb-3" style={{ color: "#cbd5e1", fontSize: "1.125rem" }}>
+              <p key={j} className="font-body mb-3" style={{ color: "#cbd5e1", fontSize: "1.375rem" }}>
                 <span style={{ color: "#fb7185" }}>{"\u2717"}</span> {c}
               </p>
             ))}
@@ -92,10 +92,10 @@ export function LibCardSlide({ slide, slideNum, total }: Props) {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.35, duration: 0.3 }}
         >
-          <span className="font-body font-medium" style={{ color: "#c4b5fd", fontSize: "1.125rem" }}>
+          <span className="font-body font-medium" style={{ color: "#c4b5fd", fontSize: "1.375rem" }}>
             Best for &rarr;
           </span>{" "}
-          <span className="font-body" style={{ color: "#cbd5e1", fontSize: "1.125rem" }}>
+          <span className="font-body" style={{ color: "#cbd5e1", fontSize: "1.375rem" }}>
             {slide.bestFor}
           </span>
         </motion.div>

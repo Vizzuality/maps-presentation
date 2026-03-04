@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import type { SectionSlide as SectionData } from "../../data/slides";
 import { SectionIcon } from "../SectionIcon";
 import { SlideCounter } from "../SlideCounter";
+import { SECTION_COLORS } from "../../data/sectionColors";
 
 interface Props {
   slide: SectionData;
@@ -10,6 +11,8 @@ interface Props {
 }
 
 export function SectionSlide({ slide, slideNum, total }: Props) {
+  const color = SECTION_COLORS[slide.number] ?? "#a78bfa";
+
   return (
     <div className="w-full h-full relative overflow-hidden">
       {/* Background image */}
@@ -46,8 +49,8 @@ export function SectionSlide({ slide, slideNum, total }: Props) {
         <motion.div
           className="font-mono tracking-widest mb-5"
           style={{
-            color: "#c4b5fd",
-            fontSize: "1.25rem",
+            color,
+            fontSize: "1.5rem",
             textShadow: "0 2px 8px rgba(0,0,0,0.6)",
           }}
           initial={{ opacity: 0 }}
@@ -76,8 +79,8 @@ export function SectionSlide({ slide, slideNum, total }: Props) {
         <motion.div
           className="w-28 h-1 mx-auto mt-10 rounded-full"
           style={{
-            background: "linear-gradient(90deg, #a78bfa, #60a5fa)",
-            boxShadow: "0 0 12px rgba(167,139,250,0.4)",
+            background: color,
+            boxShadow: `0 0 12px ${color}66`,
           }}
           initial={{ scaleX: 0 }}
           animate={{ scaleX: 1 }}

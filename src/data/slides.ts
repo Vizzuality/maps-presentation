@@ -85,7 +85,13 @@ export interface FlowchartSlide {
   type: "flowchart";
   sectionLabel: string;
   title: string;
-  decisions: { q: string; a: string; icon: string }[];
+  nodes: {
+    q: string;
+    yes: string;
+    yesIcon: string;
+    no?: string;
+    noIcon?: string;
+  }[];
 }
 
 export interface TilesVisualSlide {
@@ -158,8 +164,8 @@ export const slides: Slide[] = [
     title: "Agenda",
     sectionLabel: "",
     items: [
-      { n: "01", text: "How does a map work in the browser?" },
-      { n: "02", text: "Projections: flattening a sphere" },
+      { n: "01", text: "Projections: flattening an ellipsoid" },
+      { n: "02", text: "How does a map work in the browser?" },
       { n: "03", text: "Raster Tiles vs Vector Tiles" },
       { n: "04", text: "The library ecosystem" },
       { n: "05", text: "Library comparison" },
@@ -173,55 +179,25 @@ export const slides: Slide[] = [
   {
     type: "section",
     number: "01",
-    title: "How Does a Map Work in the Browser?",
-    icon: "tile",
-    image:
-      "https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&w=2560&q=60",
-  },
-  {
-    type: "content",
-    sectionLabel: "01 \u00B7 How Does a Map Work in the Browser?",
-    title: "It\u2019s Not One Giant Image",
-    body: "A web map is a dynamic puzzle assembled in real time.",
-    highlight:
-      "The world is divided into small square tiles (256\u00D7256 or 512\u00D7512 px). When you pan or zoom, the browser requests only the tiles it needs.",
-    detail:
-      "At zoom 18 (street level) there are ~69 billion possible tiles. That\u2019s why they\u2019re loaded on demand.",
-  },
-  {
-    type: "tiles_visual",
-    sectionLabel: "01 \u00B7 How Does a Map Work in the Browser?",
-    title: "The Tile System \u2014 Zoom Levels",
-  },
-  {
-    type: "tile_url",
-    sectionLabel: "01 \u00B7 How Does a Map Work in the Browser?",
-    title: "The Tile URL",
-  },
-
-  // ── SECTION 2 ──
-  {
-    type: "section",
-    number: "02",
-    title: "Projections: Flattening a Sphere",
+    title: "Projections: Flattening an Ellipsoid",
     icon: "globe",
     image:
       "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=2560&q=60",
   },
   {
     type: "orange",
-    sectionLabel: "02 \u00B7 Projections: Flattening a Sphere",
+    sectionLabel: "01 \u00B7 Projections: Flattening an Ellipsoid",
     title: "The Orange Peel Problem",
     subtitle: "Why every flat map is a beautiful lie",
   },
   {
     type: "projections",
-    sectionLabel: "02 \u00B7 Projections: Flattening a Sphere",
+    sectionLabel: "01 \u00B7 Projections: Flattening an Ellipsoid",
     title: "Peeling the Orange: 5 Strategies",
   },
   {
     type: "projection_table" as "table",
-    sectionLabel: "02 \u00B7 Projections: Flattening a Sphere",
+    sectionLabel: "01 \u00B7 Projections: Flattening an Ellipsoid",
     title: "Projection Comparison",
     headers: ["Projection", "Preserves", "Distorts", "Best for"],
     rows: [
@@ -236,7 +212,7 @@ export const slides: Slide[] = [
   },
   {
     type: "two_col",
-    sectionLabel: "02 \u00B7 Projections: Flattening a Sphere",
+    sectionLabel: "01 \u00B7 Projections: Flattening an Ellipsoid",
     title: "Web Mercator (EPSG:3857)",
     subtitle: 'Used by 99% of web maps \u2014 the "stretch and tape" approach',
     left: {
@@ -261,6 +237,36 @@ export const slides: Slide[] = [
     },
     footnote:
       "For most web apps, Mercator works perfectly. Only worry if you need accurate area representation.",
+  },
+
+  // ── SECTION 2 ──
+  {
+    type: "section",
+    number: "02",
+    title: "How Does a Map Work in the Browser?",
+    icon: "tile",
+    image:
+      "https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&w=2560&q=60",
+  },
+  {
+    type: "content",
+    sectionLabel: "02 \u00B7 How Does a Map Work in the Browser?",
+    title: "It\u2019s Not One Giant Image",
+    body: "A web map is a dynamic puzzle assembled in real time.",
+    highlight:
+      "The world is divided into small square tiles (256\u00D7256 or 512\u00D7512 px). When you pan or zoom, the browser requests only the tiles it needs.",
+    detail:
+      "At zoom 18 (street level) there are ~69 billion possible tiles. That\u2019s why they\u2019re loaded on demand.",
+  },
+  {
+    type: "tiles_visual",
+    sectionLabel: "02 \u00B7 How Does a Map Work in the Browser?",
+    title: "The Tile System \u2014 Zoom Levels",
+  },
+  {
+    type: "tile_url",
+    sectionLabel: "02 \u00B7 How Does a Map Work in the Browser?",
+    title: "The Tile URL",
   },
 
   // ── SECTION 3 ──
@@ -317,6 +323,16 @@ export const slides: Slide[] = [
     ],
     footnote:
       "Rule of thumb: simple map with markers \u2192 raster. Custom styling, 3D, rich interactivity \u2192 vector.",
+  },
+  {
+    type: "content",
+    sectionLabel: "03 \u00B7 Raster Tiles vs Vector Tiles",
+    title: "TiTiler \u2014 Dynamic Raster Tiles",
+    body: "What if raster tiles didn\u2019t have to be static? TiTiler is a dynamic tile server that renders raster tiles on the fly from Cloud Optimized GeoTIFFs (COGs).",
+    highlight:
+      "Instead of pre-rendering millions of PNGs, TiTiler reads from COGs at request time. You can change band combinations, colormaps, rescaling, and more \u2014 all via URL query parameters. No re-processing needed.",
+    detail:
+      "Built on FastAPI + rasterio/rio-tiler. Perfect for satellite imagery, scientific data, and any use case where you need runtime control over how raster data is visualized.",
   },
 
   // ── SECTION 4 ──
@@ -555,13 +571,12 @@ export const slides: Slide[] = [
     type: "flowchart",
     sectionLabel: "07 \u00B7 When to Use What?",
     title: "Decision Guide",
-    decisions: [
-      { q: "Need enterprise GIS or spatial analysis?", a: "ArcGIS Maps SDK", icon: "\u{1F7E3}" },
-      { q: "Need Google data (Places, Street View, Directions)?", a: "Google Maps API", icon: "\u{1F535}" },
-      { q: "Need custom styles, 3D, or vector tiles with budget?", a: "Mapbox GL JS", icon: "\u{1F3A8}" },
-      { q: "Need custom styles, 3D, vector tiles \u2014 open source?", a: "MapLibre GL JS", icon: "\u{1F5FD}" },
-      { q: "Just need a simple map with markers?", a: "Leaflet + OSM", icon: "\u{1F33F}" },
-      { q: "Need heavy data visualization?", a: "Deck.gl + MapLibre", icon: "\u{1F4CA}" },
+    nodes: [
+      { q: "Enterprise GIS / spatial analysis needed?", yes: "ArcGIS Maps SDK", yesIcon: "\u{1F7E3}" },
+      { q: "Need Google-specific data (Places, Street View)?", yes: "Google Maps API", yesIcon: "\u{1F535}" },
+      { q: "Just need a simple map with markers?", yes: "Leaflet + OSM", yesIcon: "\u{1F33F}" },
+      { q: "Heavy data visualization (millions of points)?", yes: "Deck.gl + MapLibre", yesIcon: "\u{1F4CA}" },
+      { q: "Must be open source?", yes: "MapLibre GL JS", yesIcon: "\u{1F5FD}", no: "Mapbox GL JS", noIcon: "\u{1F3A8}" },
     ],
   },
 

@@ -31,11 +31,11 @@ export function AgendaSlide({ slide, slideNum, total }: Props) {
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.1 + j * 0.07, duration: 0.4 }}
             >
-              <span className="text-xl font-mono w-14" style={{ color: "#a78bfa" }}>
+              <span className="text-2xl font-mono w-14" style={{ color: "#a78bfa" }}>
                 {it.n}
               </span>
               <div className="h-px flex-1 transition-colors duration-300" style={{ background: "rgba(255,255,255,0.06)" }} />
-              <span className="font-body" style={{ color: "#cbd5e1", fontSize: "1.375rem" }}>
+              <span className="font-body" style={{ color: "#cbd5e1", fontSize: "1.625rem" }}>
                 {it.text}
               </span>
             </motion.div>

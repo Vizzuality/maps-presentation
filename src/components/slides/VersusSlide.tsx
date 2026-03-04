@@ -41,13 +41,13 @@ export function VersusSlide({ slide, slideNum, total }: Props) {
               <h3 className="font-display text-white mb-4" style={{ fontSize: "2rem" }}>{side.label}</h3>
               <p
                 className="font-mono px-4 py-2.5 rounded-lg mb-6 inline-block"
-                style={{ background: flowBg, color: flowColor, fontSize: "0.875rem" }}
+                style={{ background: flowBg, color: flowColor, fontSize: "1.125rem" }}
               >
                 {side.flow}
               </p>
               <ul className="space-y-3">
                 {side.points.map((p, k) => (
-                  <li key={k} className="font-body" style={{ color: "#cbd5e1", fontSize: "1.125rem" }}>
+                  <li key={k} className="font-body" style={{ color: "#cbd5e1", fontSize: "1.375rem" }}>
                     &bull; {p}
                   </li>
                 ))}

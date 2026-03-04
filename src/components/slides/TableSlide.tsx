@@ -28,7 +28,7 @@ export function TableSlide({ slide, slideNum, total }: Props) {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.15, duration: 0.4 }}
         >
-          <table className="w-full font-body" style={{ fontSize: "1.125rem" }}>
+          <table className="w-full font-body" style={{ fontSize: "1.375rem" }}>
             <thead>
               <tr style={{ background: "rgba(255,255,255,0.04)" }}>
                 {slide.headers.map((h, j) => (
@@ -65,7 +65,7 @@ export function TableSlide({ slide, slideNum, total }: Props) {
         {slide.footnote && (
           <motion.p
             className="font-body mt-7"
-            style={{ color: "#64748b", fontSize: "1rem" }}
+            style={{ color: "#64748b", fontSize: "1.25rem" }}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.4, duration: 0.3 }}

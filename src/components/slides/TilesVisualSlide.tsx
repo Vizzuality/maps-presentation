@@ -30,7 +30,7 @@ export function TilesVisualSlide({ slide, slideNum, total }: Props) {
           The Tile System &mdash; Zoom Levels
         </motion.h2>
 
-        <p className="font-body mb-10" style={{ color: "#64748b", fontSize: "1.25rem" }}>
+        <p className="font-body mb-10" style={{ color: "#64748b", fontSize: "1.75rem" }}>
           Click the zoom buttons to see how tiles multiply
         </p>
 
@@ -77,7 +77,7 @@ export function TilesVisualSlide({ slide, slideNum, total }: Props) {
             onClick={() => setZoom(Math.max(0, zoom - 1))}
             disabled={zoom === 0}
             className="w-16 h-16 rounded-xl font-bold transition-all disabled:opacity-20 glass"
-            style={{ color: "#cbd5e1", fontSize: "1.5rem" }}
+            style={{ color: "#cbd5e1", fontSize: "1.75rem" }}
           >
             &minus;
           </button>
@@ -89,10 +89,10 @@ export function TilesVisualSlide({ slide, slideNum, total }: Props) {
               border: "1px solid rgba(167,139,250,0.2)",
             }}
           >
-            <span className="font-mono font-bold" style={{ color: "#c4b5fd", fontSize: "1.375rem" }}>
+            <span className="font-mono font-bold" style={{ color: "#c4b5fd", fontSize: "1.625rem" }}>
               Zoom {zoom}
             </span>
-            <span className="font-body ml-6" style={{ color: "#94a3b8", fontSize: "1.25rem" }}>
+            <span className="font-body ml-6" style={{ color: "#94a3b8", fontSize: "1.75rem" }}>
               {gridSize}&times;{gridSize} ={" "}
               <span className="text-white font-bold">{gridSize * gridSize} tiles</span>
             </span>
@@ -102,13 +102,13 @@ export function TilesVisualSlide({ slide, slideNum, total }: Props) {
             onClick={() => setZoom(Math.min(maxZ, zoom + 1))}
             disabled={zoom === maxZ}
             className="w-16 h-16 rounded-xl font-bold transition-all disabled:opacity-20 glass"
-            style={{ color: "#cbd5e1", fontSize: "1.5rem" }}
+            style={{ color: "#cbd5e1", fontSize: "1.75rem" }}
           >
             +
           </button>
         </div>
 
-        <p className="font-body" style={{ color: "#64748b", fontSize: "1.125rem" }}>
+        <p className="font-body" style={{ color: "#64748b", fontSize: "1.625rem" }}>
           4<sup>N</sup> tiles per zoom level &middot; At zoom 18 &rarr; ~69 billion tiles
         </p>
       </div>
